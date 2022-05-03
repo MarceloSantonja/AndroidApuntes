@@ -1,2 +1,0 @@
-# Atajos
-## [Jetbrains 

@@ -1,8 +1,24 @@
+
 # Guia markdown
+
+- [Guia markdown](#guia-markdown)
+  - [Encabezados](#encabezados)
+- [Añadir de 1 a 6 \#](#añadir-de-1-a-6-)
+  - [Citas](#citas)
+  - [listas](#listas)
+    - [Desordenadas](#desordenadas)
+    - [Numeradas](#numeradas)
+  - [Separaciones](#separaciones)
+  - [Negritas y cursivas](#negritas-y-cursivas)
+  - [Enlaces](#enlaces)
+  - [Imagenes](#imagenes)
+  - [Codigo](#codigo)
+  - [Anular Markdown](#anular-markdown)
+  - [referencia a una seccion de otro archivo](#referencia-a-una-seccion-de-otro-archivo)
 
 ## Encabezados
 
-# Añadir de 1 a 6 #
+# Añadir de 1 a 6 \#
 
 ## Citas
 
@@ -38,15 +54,13 @@ Esto es una separación **hay que poner "---" abajo con una linea de separación
  kajlfhañsf  asjkldhañsfh
  ajkshlfñafhñs añlskfjalñkfjsñl***
 
-
 - un \* para texto en cursiva
 - dos \* para texto en negrita
 - tres \* para ambas
 
-## Enlaces 
+## Enlaces
 
 [EnfoqueNómada](https://www.youtube.com/watch?v=y6XdzBNC0_0&feature=emb_logo)
-
 
 hay que poner **[titulo del enlace](enlace)** o directamente poner **\<el enlace\>**
 
@@ -56,14 +70,14 @@ hay que poner **[titulo del enlace](enlace)** o directamente poner **\<el enlace
 
 **Igual que el enlace pero con una admiracion delante.**
 
-
 ## Codigo
 
     Console.Writeline()
 
 hay que **dejar 4 espacios para usar codigo**
 
-~~~csharp
+~~~cs
+
 using System;
 
 namespace Ejercicios
@@ -79,13 +93,20 @@ namespace Ejercicios
 
 ~~~
 
-**o puedes usar 3~ arriba y 3~ debajo**
+o puedes usar 3 \~ arriba y 3 \~ debajo
 
-**dentro de una frase `Console.Writeline()` usar dos **`** (acentos graves)**
+**dentro de una frase `Console.Writeline()` usar dos**`**(acentos graves)**
 
-# Anular Markdown
+## Anular Markdown
 
 usar una \ delante de los simboloes del lenguaje de markdown \*
 
+## referencia a una seccion de otro archivo
 
+```
+# Main section
 
+##  [sub-section](./child.md#sub-section)    
+##  [sub-section](/child.md#sub-section)
+##  [sub-section](child.md#sub-section)
+```

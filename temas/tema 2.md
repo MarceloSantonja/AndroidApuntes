@@ -144,16 +144,35 @@ intent. Con elemento  <category>  le decimos a Android que queremos que esta act
 
 ``` kt {highlight=[9,10,11]}
 
-
-override fun onRequestPermissionsResult(
-    requestCode: Int,//codigo de identificación del resultado         permissions: Array<out String>,//array con los nombres de los permisos
-    grantResults: IntArray//array de 0 y -1 (permitido, no permitido) en orden
-    )
-    {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,//codigo de identificación del resultado
+        permissions: Array<out String>,//array con los nombres de los permisos
+        grantResults: IntArrayarray //de 0 y -1 (permitido, no permitido) en orden 
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when {
-            RESPUESTA_PERMISOS == requestCode && grantResults.isNotEmpty() -> {                 for (i in 0..permissions.size - 1) {                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED)                         Toast.makeText(                             applicationContext, "Permiso Concedido " +                                     permissions[i], Toast.LENGTH_SHORT                         ).show()                 }             }         }     } 
+            RESPUESTA_PERMISOS == requestCode && grantResults.isNotEmpty() -> {
+                for (i in 0..permissions.size - 1) {
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED)
+
+                        Toast.makeText(
 
 
+                            applicationContext, "Permiso Concedido " +
 
+
+                                    permissions[i], Toast.LENGTH_SHORT
+
+                        ).show()
+                }
+            }
+        }
+    }
 ```
+>📌 Método que se ejecuta cuando el usuario responde a los permisos. Al método le llega el código de la petición, el array con los nombres de los permisos, y el array de enteros indicando si el permiso ha sido denegado o concedido. 
+**Línea 9** se comprueba si el código de entrada es el establecido y si hay resultados. 
+**Línea 10 y 11** se recorren todos los permisos y se muestra con un toast los permisos concedidos
+
+
+
+#**Falta Gradle....**
