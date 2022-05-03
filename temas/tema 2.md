@@ -1,16 +1,13 @@
 <style>
-r { color: Red }
 o { color: Orange }
-g { color: Green }
-b { color: Blue }
 </style>
-<b>Destacar tipos o composión</b>
+<o>* Destacar tipos o composión</o>
 
 - [Tema 2](#tema-2)
   - [Recursos Android](#recursos-android)
     - [Subdirectorios](#subdirectorios)
     - [Carpetas Mipmap y Drawable](#carpetas-mipmap-y-drawable)
-    - [<o>Carpeta values</o>](#ocarpeta-valueso)
+    - [Carpeta values](#carpeta-values)
     - [Acceder a los Recursos en Android](#acceder-a-los-recursos-en-android)
   - [Android Manifest](#android-manifest)
 
@@ -22,56 +19,56 @@ b { color: Blue }
 ## Recursos Android
 
 ### Subdirectorios
-![recursos](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/recursosCarpetas.jpg?raw=true)
+![recursos](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/recursosCarpetas.jpg?raw=true)
 
-- **<b>drawable</b>**: <r>Recursos gráficos</r> que vamos a utilizar como .png, .jpg, .gif...
-- **<b>mipmap</b>**: Unicamente guardaremos <r>iconos de la aplicación</r> en las diferentes densidades de pantalla.
-- **<b>layout</b>**: Archivos XML que contienen <r>definiciones de la interfaz de usuario(vistas)</r>.
-- **<b>menu</b>**:Archivos XML que establecen las <r>características para los menús</r> usados en la interfaz.
-- **<b>values</b>**: Archivos XML que contienen datos simples como <r>enteros, strings, booleanos, colores</r>.
+- **<o>drawable</o>**: **Recursos gráficos** que vamos a utilizar como .png, .jpg, .gif...
+- **<o>mipmap</o>**: Unicamente guardaremos **iconos de la aplicación** en las diferentes densidades de pantalla.
+- **<o>layout</o>**: Archivos XML que contienen **definiciones de la interfaz de usuario(vistas)**.
+- **<o>menu</o>**:Archivos XML que establecen las **características para los menús** usados en la interfaz.
+- **<o>values</o>**: Archivos XML que contienen datos simples como **enteros, strings, booleanos, colores**.
   
 ### Carpetas Mipmap y Drawable
 
-<b> Densidades:</b>
+**<u>Densidades:</u>**
 
-- **<b>Mediun Dots per Inch(mdpi):</b>** 160pulgadas
-- **<b>High Dots per Inch(hdpi):</b>** 240pulgadas
-- **<b>Extra high dots per inch(xhdpi):</b>** 340pulgadas
-- **<b>Extra Extra high dots per inch(xxhdpi):</b>** 480pulgadas
+- **<o>Mediun Dots per Inch(mdpi):</o>** 160pulgadas
+- **<o>High Dots per Inch(hdpi):</o>** 240pulgadas
+- **<o>Extra high dots per inch(xhdpi):</o>** 340pulgadas
+- **<o>Extra Extra high dots per inch(xxhdpi):</o>** 480pulgadas
 
-### <o>Carpeta values</o>
+### Carpeta values
 
-Se crean por defecto 3 carpetas  <r>colors, strings, theme</r>.
+Se crean por defecto 3 carpetas  **colors, strings, theme**.
 
-<b>Strings:</b>  almacena todas las cadenas que se muestran
+<o>Strings:</o>  almacena todas las cadenas que se muestran
 
-![String](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/stringXML.png?raw=true)
+![String](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/stringXML.png?raw=true)
 
-<b>Color:</b>  a cada estiqueta \<color\> se le asigna un <r>nombre</r> y una referencia <r>\#hexadecimal</r> que es la que representa el color
-![Colors](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/colorsXML.png?raw=true)
+<o>Color:</o>  a cada estiqueta \<color\> se le asigna un **nombre** y una referencia **\#hexadecimal** que es la que representa el color
+![Colors](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/colorsXML.png?raw=true)
 
 Al crear un recurso se le pueden dar propiedades adicionales como por ejemplo la nacionalidad y lengua en el caso de un strings
-![CrearString](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/CrearRecurso.gif?raw=true)
+![CrearString](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/CrearRecurso.gif?raw=true)
 
 
 ### Acceder a los Recursos en Android
 
-**<b>Desde Kotlin:</b>**
+**<o>Desde Kotlin:</o>**
 
 Cada identificador se ubica en una clase llamada R a través de una constante entera **R.tipoRecurso.nombreRcurso**. 
-![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/AccederRecurso.png?raw=true)
+![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/AccederRecurso.png?raw=true)
 
-**<b>Desde XML:</b>**
+**<o>Desde XML:</o>**
 
 Para ello usamos la sintaxis @[Paquete:]tipoRecurso/nombreRecurso
-![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/AccederRecursoXML.png?raw=true)
+![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/AccederRecursoXML.png?raw=true)
 
 
 ## Android Manifest
 
-**<b>Manifest:</b>** Es el archivo más esencial de nuestra aplicación que contiene nodos descriptivos sobre las características de la App como la versión de SDK,permisos necesarios, servicios, activitys.
+**<o>Manifest:</o>** Es el archivo más esencial de nuestra aplicación que contiene nodos descriptivos sobre las características de la App como la versión de SDK,permisos necesarios, servicios, activitys.
 
-**<b>Etiqueta aplicacion:</b>**
+**<o>Etiqueta aplicacion:</o>**
 
 - <o>allowBackup(true/false):</o> Indica si la aplicacion sera persistente al cerrar nuestro AVD.
 - <o>icon:</o> Indica donde esta ubicado el icono de la aplicación.
@@ -79,7 +76,7 @@ Para ello usamos la sintaxis @[Paquete:]tipoRecurso/nombreRecurso
 - <o>theme:</o> Apunta al archivo styles.xml donde se define el estilo visual de la aplicación
 - <o>supportsRtl:</o> Declara si la aplicacion esta dispuesta a admitir diseños de derecha a izquierda
 
-**<b>Etiqueta activity:</b>**
+**<o>Etiqueta activity:</o>**
 
 Representa actividades de la aplicaón
 
@@ -91,9 +88,9 @@ Representa actividades de la aplicaón
  Con la etiqueta  \<intent-filter\>  y su elemento  \<action\>  estamos indicando que esta activity va a ser un punto de entrada para nuestra aplicación. Sólo puede haber una activity que reaccione a este
 intent. Con elemento  <category>  le decimos a Android que queremos que esta activity sea añadida al lanzador de la aplicación.
 
-![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/ManifestIntentFilter.png?raw=true)
+![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T2/ManifestIntentFilter.png?raw=true)
 
-**<b>Etiqueta uses-permissions:</b>**
+**<o>Etiqueta uses-permissions:</o>**
 
  Android restringe el uso de los recursos del sistema: tarjeta SD,
  WIFI, HW de audio, etc. Mediante este Tag especificamos los permisos que va a necesitar nuestra aplicación.
@@ -103,7 +100,7 @@ intent. Con elemento  <category>  le decimos a Android que queremos que esta act
  - <o> android.permisssion.WRITE_EXTERNAL_STORAGE:</o>Almacenamiento externo.
  - <o> android.permisssion.WAKE_LOCK:</o>  nos permite antibloqueo 
 
-**<b>Permisos en momento de ejecución:</b>**
+**<o>Permisos en momento de ejecución:</o>**
 
 [Permisos en el momento de ejecución](https://developer.android.com/training/permissions/requesting)
 
