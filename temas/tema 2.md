@@ -4,11 +4,12 @@ o { color: Orange }
 g { color: Green }
 b { color: Blue }
 </style>
+<b>Destacar tipos o composión</b>
 
 - [Tema 2](#tema-2)
   - [Recursos Android](#recursos-android)
-    - [<o>Subdirectorios</o>](#osubdirectorioso)
-    - [<o>Carpetas Mipmap y Drawable</o>](#ocarpetas-mipmap-y-drawableo)
+    - [Subdirectorios](#subdirectorios)
+    - [Carpetas Mipmap y Drawable](#carpetas-mipmap-y-drawable)
     - [<o>Carpeta values</o>](#ocarpeta-valueso)
     - [Acceder a los Recursos en Android](#acceder-a-los-recursos-en-android)
   - [Android Manifest](#android-manifest)
@@ -20,23 +21,23 @@ b { color: Blue }
 
 ## Recursos Android
 
-### <o>Subdirectorios</o>
+### Subdirectorios
 ![recursos](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/recursosCarpetas.jpg?raw=true)
 
-- **drawable**: <r>Recursos gráficos</r> que vamos a utilizar como .png, .jpg, .gif...
-- **mipmap**: Unicamente guardaremos <r>iconos de la aplicación</r> en las diferentes densidades de pantalla.
-- **layout**: Archivos XML que contienen <r>definiciones de la interfaz de usuario(vistas)</r>.
-- **menu**:Archivos XML que establecen las <r>características para los menús</r> usados en la interfaz.
-- **values**: Archivos XML que contienen datos simples como <r>enteros, strings, booleanos, colores</r>.
+- **<b>drawable</b>**: <r>Recursos gráficos</r> que vamos a utilizar como .png, .jpg, .gif...
+- **<b>mipmap</b>**: Unicamente guardaremos <r>iconos de la aplicación</r> en las diferentes densidades de pantalla.
+- **<b>layout</b>**: Archivos XML que contienen <r>definiciones de la interfaz de usuario(vistas)</r>.
+- **<b>menu</b>**:Archivos XML que establecen las <r>características para los menús</r> usados en la interfaz.
+- **<b>values</b>**: Archivos XML que contienen datos simples como <r>enteros, strings, booleanos, colores</r>.
   
-### <o>Carpetas Mipmap y Drawable</o>
+### Carpetas Mipmap y Drawable
 
 <b> Densidades:</b>
 
-- **Mediun Dots per Inch(mdpi):** 160pulgadas
-- **High Dots per Inch(hdpi):** 240pulgadas
-- **Extra high dots per inch(xhdpi):** 340pulgadas
-- **Extra Extra high dots per inch(xxhdpi):** 480pulgadas
+- **<b>Mediun Dots per Inch(mdpi):</b>** 160pulgadas
+- **<b>High Dots per Inch(hdpi):</b>** 240pulgadas
+- **<b>Extra high dots per inch(xhdpi):</b>** 340pulgadas
+- **<b>Extra Extra high dots per inch(xxhdpi):</b>** 480pulgadas
 
 ### <o>Carpeta values</o>
 
@@ -55,12 +56,12 @@ Al crear un recurso se le pueden dar propiedades adicionales como por ejemplo la
 
 ### Acceder a los Recursos en Android
 
-**Desde Kotlin:**
+**<b>Desde Kotlin:</b>**
 
 Cada identificador se ubica en una clase llamada R a través de una constante entera **R.tipoRecurso.nombreRcurso**. 
 ![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/AccederRecurso.png?raw=true)
 
-**Desde XML:**
+**<b>Desde XML:</b>**
 
 Para ello usamos la sintaxis @[Paquete:]tipoRecurso/nombreRecurso
 ![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/AccederRecursoXML.png?raw=true)
@@ -85,23 +86,17 @@ Representa actividades de la aplicaón
 - <o> label:</o> Texto que se mostrara en la cabecera de la actividad
 - <o> android:name:</o> Especifica el nombre de la actividad
 - <o> android:screenOrientation:</o> Define la orientación de la aplicación vertical o apaisada
-- <o>android:configChanges:</o> se definen los diferentes eventos que manejar con el fin de evitar que se destruya la actividad (al cambiar de orientacion o cuando aparece un teclado) se separan por \| ejemplo <r>keyboard\|keyboardHydden\|orientation</r>
+- <o>android:configChanges:</o> se definen los diferentes eventos que manejar con el fin de evitar que se destruya la actividad (al cambiar de orientacion o cuando aparece un teclado) se separan por \| ejemplo **keyboard\|keyboardHydden\|orientation**
 
  Con la etiqueta  \<intent-filter\>  y su elemento  \<action\>  estamos indicando que esta activity va a ser un punto de entrada para nuestra aplicación. Sólo puede haber una activity que reaccione a este
 intent. Con elemento  <category>  le decimos a Android que queremos que esta activity sea añadida al lanzador de la aplicación.
 
 ![AccederRecurso](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/temas/imagenes/ManifestIntentFilter.png?raw=true)
 
-
-
-
 **<b>Etiqueta uses-permissions:</b>**
 
  Android restringe el uso de los recursos del sistema: tarjeta SD,
  WIFI, HW de audio, etc. Mediante este Tag especificamos los permisos que va a necesitar nuestra aplicación.
-
-
-
 
  - <o>android.permisssion.RECORD_AUDIO:</o> Acceso al hw de audio y grabación.
  - <o> android.permisssion.INTERNET:</o> Permiso a todas las API’s de red.
@@ -121,7 +116,8 @@ intent. Con elemento  <category>  le decimos a Android que queremos que esta act
 
 [Tema2 pagina 13](tema2_estructura_de_un_proyecto_Android_Studio.pdf)
 
-```kotlin  
+``` kt {highlight=[5,7,11,17]}
+
 
     val RESPUESTA_PERMISOS = 111
 
@@ -147,7 +143,20 @@ intent. Con elemento  <category>  le decimos a Android que queremos que esta act
         }
     } 
 
-``` 
+```
+
+``` kt {highlight=[9,10,11]}
+
+
+override fun onRequestPermissionsResult(
+    requestCode: Int,//codigo de identificación del resultado         permissions: Array<out String>,//array con los nombres de los permisos
+    grantResults: IntArray//array de 0 y -1 (permitido, no permitido) en orden
+    )
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when {
+            RESPUESTA_PERMISOS == requestCode && grantResults.isNotEmpty() -> {                 for (i in 0..permissions.size - 1) {                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED)                         Toast.makeText(                             applicationContext, "Permiso Concedido " +                                     permissions[i], Toast.LENGTH_SHORT                         ).show()                 }             }         }     } 
 
 
 
+```
