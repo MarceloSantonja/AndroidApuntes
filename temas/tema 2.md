@@ -12,7 +12,7 @@ o { color: Orange }
   - [Android Manifest](#android-manifest)
 
 
-# [Tema 2](tema2_estructura_de_un_proyecto_Android_Studio.pdf)
+# [Tema 2](Xusa/tema2_estructura_de_un_proyecto_Android_Studio.pdf)
 
 
 

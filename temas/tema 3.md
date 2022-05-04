@@ -5,7 +5,7 @@ g { color: Green }
 b { color: Blue }
 </style>
 
-# [Tema 3](tema3_Componentes_Aplicacion.pdf)
+# [Tema 3](Xusa/tema3_Componentes_Aplicacion.pdf)
 
 ## Componentes de una aplicación
 

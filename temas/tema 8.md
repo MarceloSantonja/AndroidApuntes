@@ -3,7 +3,7 @@ o { color: Orange }
 </style>
 <o>* Destacar tipos o composión</o>
 
-# [Tema 8](tema8_Interfaz_Usuario_III.pdf)
+# [Tema 8](Xusa/tema8_Interfaz_Usuario_III.pdf)
 
 ## Spinner
 
@@ -79,8 +79,6 @@ para asignarlo al Spinner en la **Línea 11**.
 
 ### Pagina 3
 
-
-
 ```xml
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,6 +91,8 @@ para asignarlo al Spinner en la **Línea 11**.
 </resources>
 
 ```
+
+
 
 
 
