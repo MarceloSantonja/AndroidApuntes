@@ -4,7 +4,23 @@ b { color: Blue }
 </style>
 
 # RecyclerView (Tema8 p4)
-
+- [RecyclerView (Tema8 p4)](#recyclerview-tema8-p4)
+  - [1. Crear una clase <b>pojo con constructor</b> *Ej. Usuario.kt*](#1-crear-una-clase-bpojo-con-constructorb-ej-usuariokt)
+  - [2. <b>Añadir el RecyclerView al layout</b> que se va a mostrar *Ej. main_activity.xml*](#2-bañadir-el-recyclerview-al-layoutb-que-se-va-a-mostrar-ej-main_activityxml)
+  - [3. Crear un layout generico para las vistas de los elementos del recycler *Ej. recyclerlayout.xml*](#3-crear-un-layout-generico-para-las-vistas-de-los-elementos-del-recycler-ej-recyclerlayoutxml)
+  - [4. Crear una <b>clase Holder.kt que reciba una vista y herede de RecylclerView.ViewHolder</b> * Ej. Holder.kt*](#4-crear-una-bclase-holderkt-que-reciba-una-vista-y-herede-de-recylclerviewviewholderb--ej-holderkt)
+  - [5. Creamos una clase que herede de RecyclerView.Adapter nos obliga a sobreescribir 3 metodos *Ej. Adaptor*](#5-creamos-una-clase-que-herede-de-recyclerviewadapter-nos-obliga-a-sobreescribir-3-metodos-ej-adaptor)
+  - [6. <b>Asignar el adaptador al ReciclerView</b> en nuestra MainActivity](#6-basignar-el-adaptador-al-reciclerviewb-en-nuestra-mainactivity)
+- [Otras propiedades (Tema8 p11)](#otras-propiedades-tema8-p11)
+  - [tipos de LayoutManager](#tipos-de-layoutmanager)
+  - [ItemDecoration e ItemAnimation](#itemdecoration-e-itemanimation)
+- [Mas RecyclerView](#mas-recyclerview)
+  - [7. Click sobre un elemento de la lista](#7-click-sobre-un-elemento-de-la-lista)
+    - [8. Llamar al metodo desde donde queramos utilizarlo Ej. MainActivity](#8-llamar-al-metodo-desde-donde-queramos-utilizarlo-ej-mainactivity)
+  - [Click en cualquier lugar de la vista](#click-en-cualquier-lugar-de-la-vista)
+    - [Incluir en el recyclerlayout el elemento sobre el que se va a hacer click Ej. una imagen](#incluir-en-el-recyclerlayout-el-elemento-sobre-el-que-se-va-a-hacer-click-ej-una-imagen)
+    - [añadimos el codigo al holder](#añadimos-el-codigo-al-holder)
+  - [Click en cualquier lugar de la vista pasando informacion a la Actividad principal mediante interface](#click-en-cualquier-lugar-de-la-vista-pasando-informacion-a-la-actividad-principal-mediante-interface)
 ## 1. Crear una clase <b>pojo con constructor</b> *Ej. Usuario.kt*
 
 ```kt
@@ -297,7 +313,7 @@ interface PasarCadenaInterface{
 }
 ```
 
-```kt {highlight=[5,13-14,20,24]}
+```kt {highlight=[5,13-14,16-20,24]}
 class Holder(v: View) : RecyclerView.ViewHolder(v),
                         View.OnClickListener {
     val textNombre: TextView
@@ -326,6 +342,47 @@ class Holder(v: View) : RecyclerView.ViewHolder(v),
 }
 ```
 
-- **Línea 5:** creamos una instancia 
+- **Línea 5:** creamos una propiedad de tipo interface
+- **Línea 13 y 14:** ponemos los escuchadores en las vistas que necesitemos.
+- **Línea 16-20:** **Sobrescribimos OnClick** dependiendo de la vista pulsada le pasamos uno o otro texto a la interface
+- **Línea 24:** para que la interface no sea nula creamos un metodo al que le llega la interface
 
+```kt{highlight=[5,10,17]}
+class Adaptador internal constructor(val datos: ArrayList<Usuario>) :
+    RecyclerView.Adapter<Holder>(),View.OnClickListener,
+    View.OnLongClickListener{
+    ...
+    lateinit var pasarCadenaInterface: PasarCadenaInterface
+    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int):Holder{
+        ...
+        val holder=Holder(itemView)
+        holder.pasarCadena(object :PasarCadenaInterface{
+            override fun pasarCadena(cadena: String) {
+                pasarCadenaInterface.pasarCadena(cadena)
+            }
+        })
+        return holder
+    }
+    ...
+    fun pasarCadena(pasarCadenaInterface: PasarCadenaInterface)
+    {
+    this.pasarCadenaInterface=pasarCadenaInterface
+    }
+}
+```
 
+- **Línea 5:** creamos una propiedad de tipo interface
+- **Línea 10:** llamamos al metodo del holder creamos el objeto sobreescribiendo el metodo y a su vez pasandole el dato a la interface del holder.
+- **Línea 17:**  crear el metodo al que nos llega la interface para que no sea nula.
+  
+```kt
+adaptador.pasarCadena(object : PasarCadenaInterface {
+    override fun pasarCadena(cadena: String) {
+        Toast.makeText(
+            applicationContext,
+            "Has pulsado " +cadena,
+            Toast.LENGTH_SHORT ).show() }
+    })
+```
+  
+- llamamos al metodo en el  main y le decimos lo que queremos que haga

@@ -7,5 +7,7 @@
 ![duda2](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda2.png?raw=true)
 en vez de hacerlo asi
 ![duda2](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda3.png?raw=true)
-3. **tema 8 pagina 15** porque usamos el lateinit var en la interface?
+3. **tema 8 pagina 15** porque usamos el lateinit var en la declaracion de la interface?
 ![duda2](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda4.png?raw=true)
+4. he intentado hacer el ejemplo de la pagina 16 y me da error pasando la interface
+5. 
