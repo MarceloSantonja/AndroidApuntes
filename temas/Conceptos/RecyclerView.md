@@ -222,7 +222,7 @@ override fun onClick(p0: View?) {
 - **Línea 18:** Para que esta propiedad no sea nula, tendremos que crear un
 método al que le llegue una variable de este tipo y le sea asignada.
 
-## 8. Llamar al metodo desde donde queramos utilizarlo Ej. MainActivity
+### 8. Llamar al metodo desde donde queramos utilizarlo Ej. MainActivity
 
 ``` kt 
 adaptador.onClick(View.OnClickListener { v ->
@@ -239,3 +239,93 @@ onClick y pasar un anónimo de tipo OnClickListener, que será invocado al pulsa
 sobre un elemento de la lista. Con la vista que entra podemos saber que
 posición a sido pulsada a través del método getChildAdapterPosition() de la
 clase RecyclerView.
+
+## Click en cualquier lugar de la vista
+
+### Incluir en el recyclerlayout el elemento sobre el que se va a hacer click Ej. una imagen
+
+```xml
+<androidx.cardview.widget.CardView>   
+...         
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagen"             
+        android:src="@android:drawable/ic_menu_call"/>     
+    </LinearLayout> 
+</androidx.cardview.widget.CardView>
+```
+
+### añadimos el codigo al holder
+
+```kt {highlight=[1,2,6,7,12,16,18-20]}
+class Holder(v: View, context: Context) : RecyclerView.ViewHolder(v),
+                                           View.OnClickListener {     
+    val textNombre: TextView
+    val textApellido: TextView     
+    val context:Context     
+    val imagen:ImageView     
+    fun bind(entity: Usuario) {
+        textNombre.setText(entity.nombre)
+        textApellido.setText(entity.apellidos) 
+    }
+    init {
+        this.context=context
+        textNombre = v.findViewById(R.id.textView)
+        textApellido = v.findViewById(R.id.textView2)
+        imagen=v.findViewById(R.id.imagen)
+        imagen.setOnClickListener(this)
+    }     
+    override fun onClick(p0: View?) {
+            val i = Intent(Intent.ACTION_DIAL)
+            startActivity(context,i,null)
+    }
+}
+```
+
+- **Líneas 1 :** pasamos el contexto 
+- **Líneas 2:** heredamos de View.OnClickListener 
+- **Líneas 6 y 7:** declaramos propiedades 
+- **Líneas 12 y 16:** inicializamos el contexto y la imagen 
+- **Línea 18:** sobreescribimos el onclick donde creamos y lanzamos el intent.
+  
+## Click en cualquier lugar de la vista pasando informacion a la Actividad principal mediante interface
+
+```kt
+interface PasarCadenaInterface{
+    fun pasarCadena(cadena:String)
+}
+```
+
+```kt {highlight=[5,13-14,20,24]}
+class Holder(v: View) : RecyclerView.ViewHolder(v),
+                        View.OnClickListener {
+    val textNombre: TextView
+    val textApellido: TextView
+    lateinit var pasarCadenaInterface: PasarCadenaInterface
+    fun bind(entity: Usuario) {
+        textNombre.setText(entity.nombre)
+        textApellido.setText(entity.apellidos)
+    }
+    init {
+        textNombre = v.findViewById(R.id.textView)
+        textApellido = v.findViewById(R.id.textView2)
+        textNombre.setOnClickListener(this)
+        textApellido.setOnClickListener(this)
+    }
+    override fun onClick(p0: View?) {
+        var cadena:String
+        if(p0?.id==R.id.textView) cadena=textNombre.text.toString()
+        else cadena=textApellido.text.toString()
+        pasarCadenaInterface.pasarCadena(cadena)
+    }
+    fun pasarCadena(pasarCadenaInterface: PasarCadenaInterface)
+    {
+        this.pasarCadenaInterface=pasarCadenaInterface
+    }
+}
+```
+
+- **Línea 5:** creamos una instancia 
+
+
