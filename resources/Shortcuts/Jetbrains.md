@@ -13,6 +13,7 @@
 | Formatear Código                 | CTRL + ALT + L  |   
 | Reemplazar	                   | CTRL + R        |
 | Rehacer                          | CTRL + SHIFT + Z|
+| Seleccionar siguiente coincidencia| ALT + J|
 | [Encontrar todas las ocurrencias](#find-next-word)   | CTRL + ALT + SHIFT + J|
 
 

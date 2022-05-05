@@ -99,11 +99,7 @@ para asignarlo al Spinner en la **Línea 11**.
 
 
 
- ![image10](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T8/image10.png?raw=true)
 
-> ![image11](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T8/image11.png?raw=true)
-
-> ![image12](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T8/image12.png?raw=true)
 
 > ![image17](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/T8/image17.png?raw=true)
 
