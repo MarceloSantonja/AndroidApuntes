@@ -4,6 +4,7 @@ b { color: Blue }
 </style>
 
 # RecyclerView (Tema8 p4)
+
 - [RecyclerView (Tema8 p4)](#recyclerview-tema8-p4)
   - [1. Crear una clase <b>pojo con constructor</b> *Ej. Usuario.kt*](#1-crear-una-clase-bpojo-con-constructorb-ej-usuariokt)
   - [2. <b>Añadir el RecyclerView al layout</b> que se va a mostrar *Ej. main_activity.xml*](#2-bañadir-el-recyclerview-al-layoutb-que-se-va-a-mostrar-ej-main_activityxml)
@@ -21,6 +22,7 @@ b { color: Blue }
     - [Incluir en el recyclerlayout el elemento sobre el que se va a hacer click Ej. una imagen](#incluir-en-el-recyclerlayout-el-elemento-sobre-el-que-se-va-a-hacer-click-ej-una-imagen)
     - [añadimos el codigo al holder](#añadimos-el-codigo-al-holder)
   - [Click en cualquier lugar de la vista pasando informacion a la Actividad principal mediante interface](#click-en-cualquier-lugar-de-la-vista-pasando-informacion-a-la-actividad-principal-mediante-interface)
+  
 ## 1. Crear una clase <b>pojo con constructor</b> *Ej. Usuario.kt*
 
 ```kt

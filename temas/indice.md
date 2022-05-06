@@ -1,9 +1,9 @@
+# Temas
+
 <style>
 o { color: Orange }
 </style>
 <o>* Destacar tipos o composión</o>
-
-# Temas
 
 ## [Tema 0 .Programacion Basica en Kotlin](Xusa/tema0_kotlin.pdf)
 
@@ -197,7 +197,6 @@ o { color: Orange }
    2. BroadCastReceiver
    3. WorkManager
 
-
 ---
 
 ## [Tema 11. Persistencia de Datos I](Xusa/tema11_Persistencia_de_Datos_I.pdf)
@@ -235,4 +234,3 @@ o { color: Orange }
 5. Estilos de notifiación
 6. Botones
 7. Algunos extras de notificaciones
-

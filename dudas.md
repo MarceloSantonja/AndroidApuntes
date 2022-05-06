@@ -14,8 +14,8 @@ en vez de hacerlo asi
 //el ancho del padre, por lo que no cabria la otra vista al lado
 ![duda2](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda3.png?raw=true)
 3. **tema 8 pagina 15** porque usamos el lateinit var en la declaracion de la interface?
-![duda2](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda4.png?raw=true)
-//El lateinit se utiliza porque no se le está dando un valor desde el principio a la propiedad, pero no se hace solo con interfaces se hace con 
+![duda3](https://github.com/MarceloSantonja/AndroidApuntes/blob/main/resources/images/dudas/duda4.png?raw=true)
+//El lateinit se utiliza porque no se le está dando un valor desde el principio a la propiedad, pero no se hace solo con interfaces se hace con
 //cualquier propiedad.
 4. he intentado hacer el ejemplo de la pagina 16 y me da error pasando la interface
 //te mando un enlace con la corrección, el problema es que creabas un objeto nuevo holder en el return, ahora verás que puedes hacer click sobre
@@ -41,7 +41,6 @@ en vez de hacerlo asi
 
 
 ```
-
 
 ```kt
 package com.marcelo.ejemplorecyclerview
@@ -211,4 +210,3 @@ class Usuario(nombre:String, apellidos:String) {
 ```
 
 [Enlace a github del proyecto](https://github.com/MarceloSantonja/EjerciciosAndroidMarcelo/tree/main/B8/EjemploRecyclerView)
-
