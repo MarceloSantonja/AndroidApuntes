@@ -9,9 +9,9 @@
        2. navegador landscape(si en vez de un dialogFragment cargase un fragment normal esto nos daria problemas el Haber 2 fragments en esta vista?)
           1. carga el dialogfragment  
 3. esta bien meter la clase holder dentro de la clase adapter **EjericioResueltoPajaros.pdf pagina 7**
-4. Adapter porque se asegura de que la vista no se nula en el onclick? en la explicacion no viene igual **EjericioResueltoPajaros.pdf pagina 7**
+4. Adapter porque se asegura de que la vista no sea nula en el onclick? en la explicacion no viene igual **EjericioResueltoPajaros.pdf pagina 7**
 
-````kt
+```kt
 override fun onClick(v: View) {
 if (listener != null) listener!!.onClick(v)
 }
@@ -22,10 +22,9 @@ if (listener != null) listener!!.onClick(v)
 
 [enlace](https://stackoverflow.com/questions/28015060/the-difference-between-layoutinflater-inflate-and-findviewbyid)
 
-6. diferecia entre una propiedad de una propiedad de un fragment y un companion object
-// el companion object es igual a una propiedad static de otro lenguaje...
+1. diferecia entre una propiedad de un fragment y un companion object
+// el companion object es igual a una propiedad static de otro lenguaje se puede acceder a ella llamando directamente a la clase...
 
 [enlace](https://developer.android.com/kotlin/common-patterns#companion)
-
 
 7. si las vistas las buscamos por id para que sirve poner el android:name en los xml? para asociarlos a una clase.kt?
