@@ -242,7 +242,7 @@ método al que le llegue una variable de este tipo y le sea asignada.
 
 ### 8. Llamar al metodo desde donde queramos utilizarlo Ej. MainActivity
 
-``` kt 
+``` kt
 adaptador.onClick(View.OnClickListener { v ->
         Toast.makeText(
         this@MainActivity,

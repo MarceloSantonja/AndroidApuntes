@@ -213,3 +213,155 @@ class MainActivity : AppCompatActivity() {
 
 ## Navigation Drawer
 
+### activityMain xml
+
+```xml{highlight=[8,23,26,28-29]}
+<androidx.drawerlayout.widget.DrawerLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/drawer_layout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:openDrawer="start"
+  tools:context=".MainActivity">
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <com.google.android.material.navigation.NavigationView
+    android:id="@+id/navigation_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+    app:headerLayout="@layout/drawer_header"
+    app:menu="@menu/drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>
+```
+
+- **Linea 8:** herramienta para ver el menu mientras se diseña
+- **Linea 23:** id para inchar el navigationView
+- **Linea 26:** es donde se posiciona el menu
+- **Linea 28:** layout de la cabecera asociada al menu
+- **Linea 29:**  archivo xml que establece la vista del menu
+
+### layout drawer_header XML
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/ic_baseline_recommend_24" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drawer header"
+        android:textSize="20dp"/>
+</LinearLayout>
+```
+
+### menu drawer_menu
+
+```xml{highlight=[5]}
+<?xml version="1.0" encoding="utf-8"?>
+<menu 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/outline_photo_camera_24"
+            android:title="Camera" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/outline_photo_library_24"
+            android:title="Gallery" />
+    </group>
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/outline_build_24"
+            android:title="Tools" />
+    </group>
+    <item android:title="Group">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/outline_share_24"
+                    android:title="Share" />
+                <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/outline_send_24"
+                    android:title="Send" />
+            </group>
+        </menu>
+    </item>
+</menu>
+```
+
+-**Linea 5:** "tool" para ver la vista.
+
+### activityMain.kt
+
+```kt{highlight=[14,19,20]}
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var drawer_layout: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var navigationView:NavigationView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        navigationView= binding.navigationView
+        drawer_layout = binding.drawerLayout
+        toggle = ActionBarDrawerToggle(this,
+            drawer_layout,
+            R.string.navivigation_open,
+            R.string.navivigation_close)
+        
+        drawer_layout.addDrawerListener(toggle)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        
+        navigationView.setNavigationItemSelectedListener{ item ->
+            val id = item.itemId
+            var s=""
+            when (id) {
+                R.id.nav_camera -> s="CAMARA"
+                R.id.nav_gallery-> s="GALLERY"
+                R.id.nav_manage-> s="TOOLS"
+                R.id.nav_send-> s="SEND"
+                R.id.nav_share-> s="SHARE"
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            Toast.makeText(applicationContext,"Pulsaste la opción "+s,
+                Toast.LENGTH_SHORT).show()
+             true
+        }
+    }
+```
+
+- **Línea 14:** boton hamburguesa
+ 
