@@ -1,6 +1,8 @@
 # tema 11 Persistencia
 
-1. **Ejercicio resuelto BD** :en el ejercicio me a costado mucho buscar un metodo que me **actualice los DATOS del ReciclerView**, cada vez que meto un dato nuevo y le doy al boton mostrar cargo todos los datos de la base de datos tendria que  haber usado un ViewModel con un mutableLiveData o eso no se puede usar con recyclerView?? 
+1. **Ejercicio resuelto BD** :en el ejercicio me a costado mucho buscar un metodo que me **actualice los DATOS del ReciclerView**, cada vez que meto un dato nuevo y le doy al boton mostrar cargo todos los datos de la base de datos tendria que  haber usado un ViewModel con un mutableLiveData o eso no se puede usar con recyclerView??
+
+// hay que hacerlo con la clase abstracta
 
 ```kt
         findViewById<Button>(R.id.buttonMostrar).setOnClickListener { view->
@@ -22,5 +24,3 @@
             bdAdapter.insertContentValues(cliente)
         }
 ```
-
-2. para un spinner necesitamos un layout??? **Tema 11 pagina 14 uso de SimpleCursorAdapter**
